@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common'
-import { Prisma } from '@prisma/client'
 import { PrismaService } from 'src/prismaService/prisma.service'
 import { IsItemExistsInclude, IsItemExistsWhere } from '../types'
 
 @Injectable()
 export class ValidationService {
   constructor(private prisma: PrismaService) {}
+
   async isItemExists(params: {
     where: IsItemExistsWhere
     include: IsItemExistsInclude
@@ -15,12 +15,12 @@ export class ValidationService {
     console.log(where)
 
     try {
-      const card = await this.prisma[moduleName].findUnique({
+      const item = await this.prisma[moduleName].findUnique({
         where,
         include,
       })
 
-      if (card) return true
+      if (item) return true
 
       return false
     } catch (error) {

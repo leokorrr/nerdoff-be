@@ -43,6 +43,7 @@ model User {
   email        String    @unique
   name         String?
   surname      String?
+  password     String
   age          Int?
   gender       String?
   introduction String?
