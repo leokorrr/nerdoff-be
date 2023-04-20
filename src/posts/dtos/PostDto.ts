@@ -14,5 +14,5 @@ export class PostDto {
 
   userId: string
 
-  // TODO: passions
+  // TODO: https://trello.com/c/vWJOQOUH/12-add-passions-to-post
 }

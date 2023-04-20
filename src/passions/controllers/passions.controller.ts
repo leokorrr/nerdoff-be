@@ -18,6 +18,7 @@ import { ulid } from 'ulid'
 @Controller('passions')
 export class PassionsController {
   constructor(private passionsService: PassionsService) {}
+
   @Get('')
   async getPassions(@Query() query): Promise<Passion[]> {
     try {

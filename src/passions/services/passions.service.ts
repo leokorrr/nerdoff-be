@@ -4,7 +4,7 @@ import { PrismaService } from 'src/prismaService/prisma.service'
 import { notFoundMessage } from 'src/utils/errorMessages'
 import { ValidationService } from 'src/validation/service/validation.service'
 
-const defaultPassionInclude = { users: false, posts: false }
+const DEFAULT_PASSION_INCLUDE = { users: false, posts: false }
 
 @Injectable()
 export class PassionsService {
@@ -20,7 +20,7 @@ export class PassionsService {
 
     return this.prisma.passion.findMany({
       where,
-      include: defaultPassionInclude,
+      include: DEFAULT_PASSION_INCLUDE,
       orderBy: [{ id: 'desc' }],
     })
   }
@@ -32,7 +32,7 @@ export class PassionsService {
 
     return this.prisma.passion.findUnique({
       where,
-      include: defaultPassionInclude,
+      include: DEFAULT_PASSION_INCLUDE,
     })
   }
 
@@ -59,7 +59,7 @@ export class PassionsService {
     const isPassionExists = await this.validationService.isItemExists({
       moduleName: 'passion',
       where,
-      include: defaultPassionInclude,
+      include: DEFAULT_PASSION_INCLUDE,
     })
 
     if (isPassionExists) {
@@ -76,7 +76,7 @@ export class PassionsService {
     const isPassionExists = await this.validationService.isItemExists({
       moduleName: 'passion',
       where,
-      include: defaultPassionInclude,
+      include: DEFAULT_PASSION_INCLUDE,
     })
 
     if (isPassionExists) {
