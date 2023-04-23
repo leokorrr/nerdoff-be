@@ -48,7 +48,7 @@ export class PassionsController {
   }
 
   @Post()
-  async createCard(@Body() createPassionDto: PassionDto): Promise<Passion> {
+  async createPassion(@Body() createPassionDto: PassionDto): Promise<Passion> {
     const { postId = '', userId = '', ...createPassionData } = createPassionDto
 
     try {
@@ -68,7 +68,7 @@ export class PassionsController {
   }
 
   @Put(':ulid')
-  async updateCard(
+  async updatePassion(
     @Param('ulid') ulid: string,
     @Body() updatePassionDto: PassionDto,
   ): Promise<Passion> {
@@ -92,7 +92,7 @@ export class PassionsController {
 
   @Delete(':ulid')
   @HttpCode(204)
-  async deleteCard(@Param('ulid') ulid: string): Promise<void> {
+  async deletePassion(@Param('ulid') ulid: string): Promise<void> {
     try {
       await this.passionsService.deletePassion({ ulid })
     } catch (error) {
