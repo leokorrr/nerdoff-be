@@ -83,8 +83,6 @@ export class UsersService {
   }): Promise<User> {
     const { data, where, id } = params
 
-    // TODO: https://trello.com/c/vev1HWfN/14-same-username-validation
-    // TODO: https://trello.com/c/ijgV9YQq/15-same-email-validation
     const isUserExistsPromise = this.validationService.isItemExists({
       moduleName: 'user',
       where,
