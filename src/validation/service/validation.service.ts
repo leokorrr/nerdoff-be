@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common'
 import { PrismaService } from 'src/prismaService/prisma.service'
 import { IsItemExistsInclude, IsItemExistsWhere } from '../types'
+import { handleCatch } from 'src/utils/handleCatch'
 
 @Injectable()
 export class ValidationService {
@@ -24,7 +25,7 @@ export class ValidationService {
 
       return false
     } catch (error) {
-      console.log(error)
+      handleCatch(error)
     }
   }
 
@@ -47,7 +48,7 @@ export class ValidationService {
 
       return false
     } catch (error) {
-      console.log(error)
+      handleCatch(error)
     }
   }
 }

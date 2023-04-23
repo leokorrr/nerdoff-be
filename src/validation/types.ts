@@ -5,11 +5,6 @@ export type IsItemExistsWhere =
   | Prisma.UserWhereUniqueInput
   | Prisma.UserWhereUniqueInput
 
-export type IsItemExistsUpdateWhere =
-  | Prisma.PostWhereUniqueInput
-  | Prisma.UserWhereUniqueInput
-  | Prisma.UserWhereUniqueInput
-
 export type IsItemExistsInclude =
   | Prisma.PostInclude
   | Prisma.PassionInclude
