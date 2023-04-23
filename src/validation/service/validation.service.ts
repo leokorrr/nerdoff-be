@@ -27,4 +27,27 @@ export class ValidationService {
       console.log(error)
     }
   }
+
+  // TODO: https://trello.com/c/pO2a381g/16-come-uo-with-better-variable-name
+  async isItemExistsWithSameId(params: {
+    where: IsItemExistsWhere
+    include: IsItemExistsInclude
+    moduleName: string
+    id: string
+  }) {
+    const { id, where, include, moduleName } = params
+
+    try {
+      const item = await this.prisma[moduleName].findUnique({
+        where,
+        include,
+      })
+
+      if (!item || item?.ulid === id) return true
+
+      return false
+    } catch (error) {
+      console.log(error)
+    }
+  }
 }

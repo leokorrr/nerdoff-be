@@ -74,6 +74,7 @@ export class UsersController {
         data: {
           ...updatePassionData,
         },
+        id: ulid,
       })
 
       return user
